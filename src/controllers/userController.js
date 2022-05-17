@@ -93,7 +93,6 @@ const userController = {
             // Finalmente lo mandamos a la home
             req.session.username = req.body.username;
             res.locals.username = req.session.username; // ***************************************************
-            // res.locals.admin = req.session.username
             return res.redirect("/");
             // Si la contraseña esta mal
           } else {

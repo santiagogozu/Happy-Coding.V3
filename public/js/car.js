@@ -19,10 +19,8 @@ window.addEventListener("load", function () {
   const log = document.getElementById("valores");
   let agregar = document.querySelector(".button");
 
+  let nameUser = document.querySelector(".started-button");
 
-
-
-  
   input.addEventListener("input", updateValue);
 
   function updateValue(e) {
@@ -30,11 +28,15 @@ window.addEventListener("load", function () {
   }
 
   agregar.addEventListener("click", function (e) {
-    agregar.classList.add("cargando");
-    setTimeout(() => agregar.classList.remove("cargando"), 3700);
+    if (nameUser != null) {
+      agregar.classList.add("cargando");
+      setTimeout(() => agregar.classList.remove("cargando"), 3700);
 
-    const cantidad = log.innerHTML;
-    // console.log(cantidad);
-    carrito(e.target.id, cantidad);
+      const cantidad = log.innerHTML;
+      // console.log(cantidad);
+      carrito(e.target.id, cantidad);
+    } else {
+      location.href = "/login";
+    }
   });
 });
