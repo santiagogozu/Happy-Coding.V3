@@ -8,7 +8,7 @@ const path = require("path");
 // CODIGO NECESARIO PARA CARGAR IMAGENES
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../public/images/products");
+    cb(null, "../public/images/users");
   },
   filename: function (req, file, cb) {
     cb(
@@ -28,14 +28,14 @@ router.get("/", userController.index);
 
 router.post(
   "/create",
+  upload.single("image"),
   [
     check("username1").notEmpty().withMessage("Nombre no puede ser vacio"),
     check("email1").notEmpty().withMessage("Email no puede ser vacio"),
     check("pass1").notEmpty().withMessage("Password no puede ser vacio"),
     check("pass2").notEmpty().withMessage("Password no puede ser vacio"),
   ],
-  upload.single("image"),
-  midelwareprueba,
+
   userController.create
 );
 
@@ -45,8 +45,6 @@ router.post(
     check("username").notEmpty().withMessage("Nombre no puede ser vacio"),
     check("pass").notEmpty().withMessage("Password no puede ser vacio"),
   ],
-  upload.single("image"),
-  midelwareprueba,
   userController.login
 );
 

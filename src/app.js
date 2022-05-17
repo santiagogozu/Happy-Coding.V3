@@ -46,7 +46,9 @@ app.use("/product", rutasProduct);
 app.use("/user", rutasUser);
 app.use("/api", api);
 app.use("/car", carrito);
-
+app.use((req, res, next) => {
+  res.status(404).render("error404");
+});
 //Servidor
 app.listen(process.env.PORT || 3002, function () {
   console.log("Servidor funcionando");

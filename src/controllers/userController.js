@@ -22,7 +22,6 @@ const userController = {
     let errors = validationResult(req); //CODIGO NECESARIO PARA VALIDAR LOS ERRORES DE EXPRESS VALIDATOR
     // COMPARADOR PARA VERIFICAR SI TENEMOS ERRORES EN EL LOGIN
     if (errors.isEmpty()) {
-
       const {username1, email1, pass1, pass2} = req.body;
       const nuevouser = {
         username: username1,
