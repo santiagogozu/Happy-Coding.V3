@@ -1,0 +1,40 @@
+[
+ {
+  "id": 1,
+  "username": "admin",
+  "email": "admin@gmail.com",
+  "pass1": "$2a$10$JNcTYrRLSEJ.cTmabAIZ0.C4nzAomfPd8jZ7Rb8IiHX6YdP.Az/Gi",
+  "pass2": "123",
+  "admin": true
+ },
+ {
+  "id": 2,
+  "username": "mazo",
+  "email": "hola@gmail.com",
+  "pass1": "$2a$10$523K/G460LIDPGAmawny9.xDWfp4dlimACjHcCLlcSquD8W/RGwNe",
+  "pass2": "123",
+  "admin": true
+ },
+ {
+  "id": 3,
+  "username": "andres",
+  "email": "hola@gmail.com",
+  "pass1": "$2a$10$VOXhNq12V6gRmL66KqYfv.Q1frqm2EcEvd87hrq4EkW.O1v08eQZG",
+  "pass2": "123",
+  "admin": true
+ },
+ {
+  "username": "santiagogo",
+  "email": "santiagogo1993@gmail.com",
+  "pass1": "$2a$10$3a9.QhYTslrLvqmFjq8SweX9gSlTLjyzAXPGZrAdG8nwh/9Udy0ay",
+  "pass2": "123",
+  "admin": false
+ },
+ {
+  "username": "santiagogo",
+  "email": "santiagogo1993@gmail.com",
+  "pass1": "$2a$10$zRrirpb.SD3WeLMjcbVbPu80askzMjvJDJqg0uWGRSqRirnYcu3ji",
+  "pass2": "123",
+  "admin": false
+ }
+]

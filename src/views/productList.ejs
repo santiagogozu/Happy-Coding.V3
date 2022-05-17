@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head.ejs') %>
+    
+<body>
+
+    <%- include('partials/header.ejs') %>
+
+    <table class="sortable" id="sortMe"> 
+        <tr>
+            <th data-type="number"><button class="table__header">ID</button></th>
+            <th><button class="table__header">Product Name</button></th>
+            <th><button class="table__header">Categori</button></th>
+            <th><button class="table__header">Description</button></th>
+            <th><button class="table__header">Price</button></th>
+            <th><button class="table__header">Accion</button></th>
+        </tr>
+        <tbody>
+            <% products.forEach(product=>{%>    
+                <tr>
+                    <td><%=product.id%></td>
+                    <td><%=product.name%></td>
+                    <td><img src="/images/products/<%= product.image %>" width=90vw ></td>
+                    <td><%=product.description%></td>
+                    <td><%=product.price%></td>
+                    <td>
+                        <a href="/product/edit/<%= product.id %>" class="edit-button" >Edit</a>
+                        <form action="/product/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex" class="delet-button-form"  id="<%=product.name%>">
+                            <button type="submit" class="delet-button"  >Delet</button>
+                        </form>
+                    </td>
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
+</body>
+
+
+
+
+
+<script src="/js/alertDelet.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+
+
+</html>

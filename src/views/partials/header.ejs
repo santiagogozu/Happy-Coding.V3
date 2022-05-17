@@ -1,0 +1,97 @@
+    <div class="logo">
+        <a href="/">
+        <img src="/images/Logo-PNG1.png"> </a>
+
+
+            <!-- <h1>imprime el admin <%=locals.admin %></h1>
+            <h1>imprime el usuario <%=locals.username %></h1> -->
+            
+            <!-- BARRA DE BUSQUEDA -->
+            <div class="buscar">
+                <form class="buscador" method="get" name="buscador" >
+                    <input type="search" placeholder="Buscar" >
+                    <button type="submit" class="botonBusqueda">buscar</button >
+                </form>
+            </div>
+                
+             <% if(locals.username == undefined){ %>
+            <div class='sectionStarted'>
+                <a href="/login" class="newStarted">
+                    <span>Get Started</span>
+                </a>
+            </div>
+
+        <% }%>
+
+        <div class="started">
+        <% if(locals.username != undefined && locals.admin ==true ){ %>
+
+            
+                <div class="svg" id="svg"></div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie.min.js" integrity="sha512-V1YyTKZJrzJNhcKthpNAaohFXBnu5K9j7Qiz6gv1knFuf13TW/3vpgVVhJu9fvbdW8lb5J6czIhD4fWK2iHKXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <button onclick="window.location.href='/userDetail'" class="started-button">Hi <%=locals.username%></button>
+                <br>
+                <div class="contenedorLonIn">
+                <form action="/logout" method="POST" class="form is-inline">
+                    <button onclick="window.location.href='/logout'" class="logOut-button">Logout</button>
+                </form>
+                <a href="/product/create" class="started-button">Create new product</a>
+                <a onclick="window.location.href='/productList'" class="started-button">List product</a>
+                <a onclick="window.location.href='/userList'" class="started-button">List users</a>
+                
+            </div>
+            <% }%>
+             </div>
+
+
+             
+             <div class="started">
+        <% if(locals.username != undefined  && locals.admin == false){ %>
+
+                <div class="svg" id="svg"></div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie.min.js" integrity="sha512-V1YyTKZJrzJNhcKthpNAaohFXBnu5K9j7Qiz6gv1knFuf13TW/3vpgVVhJu9fvbdW8lb5J6czIhD4fWK2iHKXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <button onclick="window.location.href='/userDetail'" class="started-button">Hi <%=locals.username%></button>
+                <br>
+                <div class="contenedorLonIn">
+                <button onclick="window.location.href='/car'" class="started-button">Cart</button>
+                <br>
+                <div class="contenedorLonIn">
+                <form action="/logout" method="POST" class="form is-inline">
+                    <button onclick="window.location.href='/logout'" class="logOut-button">Logout</button>
+                </form>
+                </div>
+            </div>
+            <% }%>
+             </div>
+
+            </div>
+
+
+            <script src="/js/search.js"></script>
+
+            <script>
+                var svgContainer = document.getElementById('svg');
+                var animItem = bodymovin.loadAnimation({
+                    wrapper: svgContainer,
+                    animType: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: 'https://assets2.lottiefiles.com/packages/lf20_aRvNGV.json'
+                });
+            </script>
+
+            <!-- Eliminar informacion de localStorage con logout -->
+            <script>
+                window.addEventListener("load", function () {
+                    var logout = document.querySelector('.logOut-button');
+                    console.log(logout)
+                    logout.addEventListener("click", function (e) {
+                        localStorage.removeItem("datos")
+                    })
+                })
+            </script>
+
+
+
+
+

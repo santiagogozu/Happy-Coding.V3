@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head.ejs') %>
+
+<body>
+
+<!--inicio de header LOGO HAPPY CODING-->
+
+<%- include('partials/header.ejs') %>
+
+<!-- BOTONES -->
+
+<!-- inicio contenedor secciones -->
+<div class="categories1">
+    <div class="products">
+          <!-- CICLO FOR PARA IMPRIMIR AUTOMATICAMENTE LOS PRODUCTOS -->
+        <% products.forEach(function(product){ %>
+            <div class="contenedorSpace">
+                <div class='space' onclick="window.location.href='product/<%= product.id%>'">
+                <img src="/images/products/<%= product.image %>" width="200px" height="250px">
+                <hr class="line3">
+                <br>
+                <a class="text"><%= product.name%></a>
+                <a class="text">$<%= product.price%></a>
+            </div>
+        </div>
+        <% }) %>
+
+    </div>
+</div> <!--fin DIV botones-->    
+
+</body>
+</html>

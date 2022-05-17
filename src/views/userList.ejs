@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <%- include('partials/head.ejs') %>
+    <body>
+    
+        <%- include('partials/header.ejs') %>
+<body>
+    <div class="list-user">
+    <table>
+    <tr>
+        <th>ID</th>
+        <th>User Name</th>
+        <th>email</th>
+        <th>pass</th>
+        <th>admin</th>
+        <th>Accion</th>
+    </tr>
+    <% users.forEach(user=>{%>
+    <tr>
+    <td><%=user.id%></td>
+    <td><%=user.username%></td>
+    <td><%=user.email%></td>
+    <td><%=user.pass2%></td>
+    <td><%=user.admin%></td>
+    <td>
+        <a href="/user/edit/<%= user.id %>" class="edit-button">Edit</a>
+                    <form action="/user/delete/<%= user.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                        <button type="submit" class="delet-button">Delet</button>
+                    </form>
+    </td>
+</tr>
+<%})%>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

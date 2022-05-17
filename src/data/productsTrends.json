@@ -1,0 +1,27 @@
+[
+ {
+  "name": "Red",
+  "price": "100",
+  "image": "Black-T-shirt.png"
+ },
+ {
+    "name": "Bag",
+    "price": "200",
+    "image": "bag1.png"
+   },
+   {
+    "name": "Hoodie",
+    "price": "300",
+    "image": "hoodie2.png"
+   },
+   {
+    "name": "Socks",
+    "price": "400",
+    "image": "Socks-1.png"
+   },
+   {
+    "name": "Hats",
+    "price": "500",
+    "image": "hat1.png"
+   }
+]
