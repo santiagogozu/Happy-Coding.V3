@@ -133,7 +133,8 @@
 
 /* CONTAINER BODY */
 body {
-  background: var(--clr-bg);
+  /* background: var(--clr-bg); */
+  background: radial-gradient(circle, #240015 0%, #12000b 100%);
   font-family: "Roboto Mono", monospace;
   margin: 3vw;
 }
