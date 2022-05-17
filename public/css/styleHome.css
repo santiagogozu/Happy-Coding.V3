@@ -333,6 +333,7 @@ body {
   justify-content: center;
   align-items: center;
   justify-content: space-around;
+  padding: 0% 10% 0% 10%;
 }
 
 .price {
@@ -1762,4 +1763,12 @@ button:hover::after {
 
 .botonBusqueda{
   display: none;
+}
+
+.agregarCarro{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
