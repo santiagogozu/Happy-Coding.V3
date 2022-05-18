@@ -1,22 +1,12 @@
 const fs = require("fs");
 const path = require("path");
-
 const db = require("../database/models");
-
-const userFilePath = path.join(__dirname, "../data/userDataBase.json");
-const users = JSON.parse(fs.readFileSync(userFilePath, "utf-8"));
 const {validationResult} = require("express-validator");
-
-const userLoginFilePath = path.join(__dirname, "../data/usersLoginInfo.json");
-const usersLoginInfo = JSON.parse(fs.readFileSync(userLoginFilePath, "utf-8"));
-
-const productsTrendsPath = path.join(__dirname, "../data/productsTrends.json");
-const productsTrends = JSON.parse(fs.readFileSync(productsTrendsPath, "utf-8"));
 
 const mainController = {
   // MOSTRAR PAGINA HOME
   home: (req, res) => {
-    return res.render("home", {productsTrends});
+    return res.render("home", {});
   },
 
   // MOSTRAR PAGINA TSHIRTS

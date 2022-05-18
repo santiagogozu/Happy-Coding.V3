@@ -36,7 +36,7 @@ window.addEventListener("load", function () {
           ) {
             swalWithBootstrapButtons.fire(
               "Cancelled",
-              "Your imaginary file is safe :)",
+              "Your product is safe :)",
               "error"
             );
           }

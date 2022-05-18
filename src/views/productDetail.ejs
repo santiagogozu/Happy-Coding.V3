@@ -16,7 +16,6 @@
         <div  class="contedorCamisa1">
             <img src="/images/products/<%= product.image %>" alt="" class="imgCamisa1">
         </div>
-        <br>
         <div class="descripcion"><%= product.description%></div>
         <br>
             <div class="precio-carrito">
@@ -28,7 +27,7 @@
                     <p id="valores"></p>
 
                     <button class="button" id="<%=product.id %>">
-                        <span id="<%=product.id %>">Add to cart</span>
+                        <span id="<%=product.id %>" class="button-text">Add to cart</span>
                         <div class="cart" id="<%=product.id %>">
                             <svg viewBox="0 0 36 26">
                                 <polyline points="1 2.5 6 2.5 10 18.5 25.5 18.5 28.5 7.5 7.5 7.5"></polyline>
