@@ -25,11 +25,6 @@
 
         <div class="started">
         <% if(locals.username != undefined && locals.admin ==true ){ %>
-
-            
-                <!-- <div class="svg" id="svg"></div>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie.min.js" integrity="sha512-V1YyTKZJrzJNhcKthpNAaohFXBnu5K9j7Qiz6gv1knFuf13TW/3vpgVVhJu9fvbdW8lb5J6czIhD4fWK2iHKXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-                <br>
                 <div class="contenedorLonIn">
                     <button onclick="window.location.href='/userDetail'" class="started-button">Hi <%=locals.username%></button>
                     <a href="/product/create" class="started-button">Create new product</a>
@@ -46,10 +41,6 @@
              
              <div class="started">
         <% if(locals.username != undefined  && locals.admin == false){ %>
-
-                <!-- <div class="svg" id="svg"></div>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie.min.js" integrity="sha512-V1YyTKZJrzJNhcKthpNAaohFXBnu5K9j7Qiz6gv1knFuf13TW/3vpgVVhJu9fvbdW8lb5J6czIhD4fWK2iHKXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-                <br>
                 <div class="contenedorLonIn">
                     <button onclick="window.location.href='/userDetail'" class="started-button">Hi <%=locals.username%></button>
                     <button onclick="window.location.href='/car'" class="started-button">Cart</button>

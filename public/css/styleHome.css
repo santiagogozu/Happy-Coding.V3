@@ -9,7 +9,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 3%;
+  margin-top: 1vmax;
   margin-right: 3%;
   /* margin-bottom: 3%; */
   margin-left: 3%;
@@ -20,8 +20,8 @@
 .buscar input {
   display: flex;
   flex-wrap: wrap;
-  width: 25vw;
-  height: 30px;
+  width: 25vmax;
+  height: 2vmax;
   padding: 0 20px;
   font-size: 15px;
   color: #000;
@@ -74,7 +74,7 @@
 
 /* BOTON GET STARTED */
 .started-button {
-  font-size: 0.8rem;
+  font-size: 1vmax;
   flex-wrap: wrap;
   display: inline-block;
   cursor: pointer;
@@ -345,6 +345,7 @@ body {
   justify-content: space-around;
   padding: 0% 10% 0% 10%;
   width: 100%;
+  flex-direction: column;
 }
 
 .price {
@@ -387,7 +388,7 @@ body {
 }
 
 .logOut-button {
-  font-size: 0.8rem;
+  font-size: 1vmax;
   flex-wrap: wrap;
   display: inline-block;
   cursor: pointer;
@@ -529,7 +530,7 @@ body {
 }
 
 .newStarted {
-  font-size: 1.91rem;
+  font-size: 1.91vmax;
   cursor: pointer;
   text-decoration: none;
   color: var(--clr-bs);
@@ -699,12 +700,12 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 27vmax;
   border-radius: 10px;
   /* color: white; */
   flex: 0.5;
   flex-grow: 1;
-  margin: 135px 0px 0px 0px;
+  margin-top: 5vmax;
   position: relative;
   /* transition: width .2s; */
   z-index: 2;
@@ -727,7 +728,7 @@ body {
 @import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
 
 .Top {
-  font-size: 2.5rem;
+  font-size: 1.8vmax;
   cursor: pointer;
   text-decoration: none;
   color: var(--clr-neon);
@@ -803,7 +804,7 @@ body {
 @import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
 
 .Top1 {
-  font-size: 2.5rem;
+  font-size: 1.8vmax;
   cursor: pointer;
   text-decoration: none;
   color: var(--clr-bl);
@@ -891,7 +892,7 @@ body {
 @import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
 
 .Top2 {
-  font-size: 2.5rem;
+  font-size: 1.8vmax;
   cursor: pointer;
   text-decoration: none;
   color: var(--clr-bm);
@@ -979,7 +980,7 @@ body {
 @import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
 
 .Top3 {
-  font-size: 2.4rem;
+  font-size: 1.8vmax;
   cursor: pointer;
   text-decoration: none;
   color: var(--clr-ba);
@@ -1062,7 +1063,7 @@ body {
 @import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
 
 .Top4 {
-  font-size: 2.5rem;
+  font-size: 1.8vmax;
   cursor: pointer;
   text-decoration: none;
   color: var(--clr-br);
@@ -1166,7 +1167,8 @@ body {
 }
 
 .logoh-c{
-  width: 70%;
+  width: 15vmax;
+
 }
 
 
@@ -1374,8 +1376,8 @@ button:hover::after {
 
 .social-btn {
 	cursor: pointer;
-	height: 50px;
-	width: 50px;
+	height: 3vmax;
+	width: 3vmax;
 	font-family: 'Titillium Web', sans-serif;
 	color: #333;
 	border-radius: 10px;
@@ -1528,7 +1530,7 @@ button:hover::after {
 .button {
 
   border:  var(  --clr-bl);
-  font-size: 1.91rem;
+  font-size: 1.3rem;
   box-shadow: inset 0 0 0.5em 0 var(  --clr-bl), 0 0 0.5em 0 var(--clr-bl);
 
   --text: #fff;
@@ -1557,7 +1559,7 @@ button:hover::after {
   --scale: 0.95;
 }
 .button span {
-  font-size: 14px;
+  /* font-size: 14px; */
   font-weight: 500;
   display: block;
   position: relative;
@@ -1698,10 +1700,10 @@ button:hover::after {
 
 
 .cantidadProductoDetalle{
-  font-size: 18px;
+  font-size: 1px;
   font-family: "Roboto Mono", monospace;
   flex-wrap: wrap;
-  width: 10%;
+  width: 20%;
   font-size: 100%;
   color: rgb(255, 255, 255);
   outline: none;
@@ -1710,20 +1712,8 @@ button:hover::after {
   border-radius: 20px;
   align-items: right;
   cursor:pointer;
-
   box-shadow: inset 0 0 0.5em 0 var(  --clr-bm), 0 0 0.5em 0 var(--clr-bm);
-
-
-
-
-  /* font-size: 1.91rem;
-  color: var(  --clr-bl);
-  border: var(  --clr-bl) 0.125em solid;
-  padding: 0.25em 1em;
-  border-radius: 0.25em;
-  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-  box-shadow: inset 0 0 0.5em 0 var(  --clr-bl), 0 0 0.5em 0 var(  --clr-bl);
-  position: relative; */
+  text-align: center
 }
 
 
@@ -1805,4 +1795,10 @@ button:hover::after {
   align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+.prueba{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
