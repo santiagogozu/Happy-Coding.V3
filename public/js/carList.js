@@ -3,7 +3,6 @@ window.addEventListener("load", function () {
   const container = document.createElement("div");
   container.setAttribute("class", "container");
   app.appendChild(container);
-  // localStorage.removeItem("datos"); //elimina informacion del localStorage datos
   let str = localStorage.getItem("datos"); // capturamos el local storage
   let productosCarrito = JSON.parse("[" + str + "]"); // convuerte el string json en un array de objetos
   var productosUnicos = productosCarrito.filter(
@@ -11,13 +10,11 @@ window.addEventListener("load", function () {
   );
 
   const productosUnicos1 = JSON.stringify(productosUnicos);
-  console.log(productosUnicos1);
   const productosUnicos2 = productosUnicos1.replace(/[[\]]/g, "");
 
   localStorage.setItem("datos", productosUnicos2); //convierte el JSON en string para guardarlo en el locarStorage
 
-  // console.log(productosUnicos);
-  // localStorage.setItem("productosUnicos", productosUnicos);
+  var acumulador = 0;
 
   productosUnicos.forEach((productos, index) => {
     fetch(`http://localhost:3002/api/product/${productos.id}/`)
@@ -25,7 +22,6 @@ window.addEventListener("load", function () {
         return response.json();
       })
       .then(function (product) {
-        console.log();
         let {id, id_categorie, image, name, price} = product.data;
         let cantidad = productosUnicos[index].cantidad;
         const card = document.createElement("div");
@@ -38,6 +34,7 @@ window.addEventListener("load", function () {
         cantidad1.setAttribute("value", cantidad);
         cantidad1.setAttribute("type", "number");
         cantidad1.setAttribute("class", "cantidadProducto");
+        cantidad1.setAttribute("id", id);
         const editor = document.createElement("div");
         editor.setAttribute("class", "divEditor");
         const edit = document.createElement("a");
@@ -45,7 +42,7 @@ window.addEventListener("load", function () {
         const total = document.createElement("a");
 
         const formulario = document.createElement("form");
-        // formulario.setAttribute("method", "POST");
+
         formulario.setAttribute("class", "delet-button-form");
         formulario.setAttribute("action", "/car");
 
@@ -54,11 +51,14 @@ window.addEventListener("load", function () {
         delet.setAttribute("class", "delet-button");
 
         name1.innerHTML = name;
-        price1.innerHTML = "price: $" + price;
+        price1.innerHTML = price;
+        price1.setAttribute("class", "price" + id);
         image1.setAttribute("src", "/images/products/" + image);
         image1.setAttribute("class", "imageCarrito");
         edit.innerHTML = "Edit";
         total.innerHTML = price * cantidad;
+        total.setAttribute("class", "total" + id);
+        total.setAttribute("id", "total");
         delet.innerHTML = "Delete";
         delet.setAttribute("id", id);
 
@@ -79,10 +79,23 @@ window.addEventListener("load", function () {
         card.appendChild(espacio);
         card.appendChild(cantidad1);
         card.appendChild(total);
-        // editor.appendChild(edit);
         formulario.appendChild(delet);
         editor.appendChild(formulario);
         card.appendChild(editor);
+
+        acumulador = acumulador + price * cantidad;
+
+        if (index == productosUnicos.length - 1) {
+          const total = document.createElement("h1");
+          total.setAttribute("class", "container");
+          total.setAttribute("id", "sumaTotal");
+          total.innerHTML = "TOTAL $" + acumulador;
+          var divTotal = document.querySelector(".sumaTotal");
+          var card2 = document.createElement("div");
+          card2.setAttribute("class", "card");
+          card2.appendChild(total);
+          divTotal.appendChild(card2);
+        }
       });
   });
 
@@ -97,6 +110,50 @@ window.addEventListener("load", function () {
       var productosEliminados1 = JSON.stringify(productosEliminados);
       productosEliminados1 = productosEliminados1.replace(/[[\]]/g, "");
       localStorage.setItem("datos", productosEliminados1);
+    }
+
+    if (e.target.classList.value == "cantidadProducto") {
+      const id = e.target.id;
+      var productos = document.querySelectorAll(".cantidadProducto");
+
+      productos.forEach((producto) => {
+        if (producto.attributes.id.value == id) {
+          let precioProducto = this.document.querySelector(".price" + id);
+          precioProducto = precioProducto.innerHTML;
+
+          let precioReal = this.document.querySelector(".total" + id);
+          precioReal.innerHTML = producto.value * precioProducto;
+
+
+          ////////////////////////// AGREGAR VALORES EN VIVO EN TOTAL //////////////////////////
+          let nuevaSuma = document.querySelectorAll("#total"); //guarda la informacion de los totales de cada producto
+          let total = document.querySelector("#sumaTotal"); //guarda la informacion de total de todos los productos
+          var nuevoTotal = 0;
+          nuevaSuma.forEach((nuevaSumas, index) => {
+            nuevoTotal = parseInt(nuevaSumas.innerHTML) + nuevoTotal;
+
+            if (index == nuevaSuma.length - 1) {
+              total.innerHTML = "TOTAL $" + nuevoTotal;
+            }
+            
+          });
+
+
+
+          ////////////////////// INGRESAR NUEVOS VALORES EN EL LOCALSTORAGE ////////////////////
+          productosUnicos.forEach((productoUnico) => {
+            if (productoUnico.id == id) {
+              productoUnico.cantidad = producto.value;
+            }
+          });
+
+
+        }
+      });
+      var nuevaListaProductos = JSON.stringify(productosUnicos);
+      nuevaListaProductos = nuevaListaProductos.replace(/[[\]]/g, "");
+      localStorage.setItem("datos", nuevaListaProductos);
+
     }
   });
 });
