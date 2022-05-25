@@ -5,8 +5,15 @@ const carritoController = {
     return res.render("car");
   },
 
+  createCarIndex: async (req, res) => {
+    return res.send("car");
+  },
+
   createCar: async (req, res) => {
-    return res.render("car");
+    const inputlocal = req.body;
+    console.log("entra al createCar");
+    console.log(inputlocal);
+    res.send(inputlocal);
   },
 };
 

@@ -120,37 +120,32 @@ const userController = {
     res.render("productEdit", {productToEdit});
   },
 
-  update: (req, res) => {
-    let id = req.params.id;
-    console.log(req.body.name);
-    let productToEdit = users.find((product) => product.id == id);
+  // EDITAMOS PRODUCTOS
+  update: async (req, res) => {
+    try {
+      const id = req.params.id;
+      console.log(id);
+      console.log(req.body);
 
-    let image;
+      const {username, email1, pass1, pass2} = req.body;
 
-    if (req.files[0] != undefined) {
-      image = req.files[0].filename;
-    } else {
-      image = productToEdit.image;
+      let productToEdit = {
+        username: username,
+        email: email1,
+        pass1: pass1,
+        pass2: pass2,
+        admin: false,
+      };
+
+      console.log(productToEdit);
+
+      await db.users.update(productToEdit, {
+        where: {id: id},
+      });
+      res.redirect("/");
+    } catch (error) {
+      // return res.send(error);
     }
-
-    productToEdit = {
-      id: productToEdit.id,
-      name: req.body.name,
-      price: req.body.price,
-      category: req.body.category,
-      description: req.body.description,
-      image: req.file ? req.file.filename : productToEdit.image,
-    };
-
-    let newusers = users.map((product) => {
-      if (product.id == productToEdit.id) {
-        return (product = {...productToEdit});
-      }
-      return product;
-    });
-
-    fs.writeFileSync(userFilePath, JSON.stringify(newusers, null, " "));
-    res.redirect("/");
   },
 
   detail: (req, res) => {

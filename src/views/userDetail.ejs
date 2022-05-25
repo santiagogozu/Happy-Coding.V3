@@ -6,12 +6,48 @@
 
 <%- include('partials/header.ejs') %>
 <div class="MargenHoodies2">
+    
     <div class="camisaCompra1" id="camisaCompra1">
-        <%=user.username%>
+        
+        <form action="/user/edit/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <label for="username">Username: </label>
+            <input type="text" class="form__input" name="username" id="username2" value="<%=user.username%>" > 
+
+        <div class="form__input-group">
+            <label for="pass">Email: </label>
+            <input type="email" class="form__input" name="email1" id="email2" value="<%=user.email%>"> 
+        </div>
+
+        <div class="form__input-group">
+            <label for="pass">Password: </label>
+            <input type="password" class="form__input" name="pass1" id="pass21"  > 
+          </div>
+          <div class="form__input-group">
+            <label for="pass">Password: </label>
+            <input type="password" class="form__input" name="pass2" id="pass22"  > 
+          </div>
+
+          <div class="form__input-group">
+            <button type="submit" class="form__button">Submit</button>
+          </div>
+
+        </form>  
     </div>
 
 
-</div>
+
+
+
+
+
+
+
+
+    </div>
+
+    
+        
+
 <!-- BOTONES -->
 </body>
 </html>
